@@ -106,7 +106,19 @@ detailId.forEach(idDetail =>{
 
   <img src="${idDetail.thumbnail_url}" class="img-fluid rounded-start w-75" alt="...">
   <p class="card-text">${idDetail.details}</p>
+  
+  <div class="d-flex justify-content-between align-items-center g-5 width">
+    
+  <div class="d-flex">
+  <img src="${idDetail.author.img}" alt=""><br>
+  <span  class="">
+  <b>${idDetail.author.name ? idDetail.author.name: 'not found'}</b>
+  <p>${idDetail.author ? idDetail.author.published_date: 'not found'}</p>
+  </span>
+  </div>
+   <b class="">${idDetail.total_view ? idDetail.total_view : 'not found'} views</b>
 
+  </div>
  
   
   `;
