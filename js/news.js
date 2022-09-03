@@ -6,5 +6,18 @@ const loadCategory = () =>{
 }
 
 
+const displayCategory = category =>{
+ const categories = document.getElementById('category-container');
+ category.forEach(element => {
+  const categoryLi = document.createElement('li');
+  categoryLi.classList.add('nav-item');
+  categoryLi.innerHTML = `
+  <a onclick ="categoryId('${element.category_id}'), loaderItem(true)" class="nav-link active" aria-current="page">${element.category_name}</a>
+  
+  `;
+  categories.appendChild(categoryLi);
+ });
+
+}
 
 
