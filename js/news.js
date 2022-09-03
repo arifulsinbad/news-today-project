@@ -66,7 +66,7 @@ mainDiv.innerHTML = `
     </span>
     </div>
      <b class="">${idField.total_view ? idField.total_view : 'not found'} views</b>
-  
+  <div onclick="detailsBtn('${idField._id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</div>
     </div>
    </div>
  </div>
@@ -90,6 +90,12 @@ const loaderItem = loader =>{
   else{
     loaderField.classList.add('d-none')
   }
+}
+
+const detailsBtn = details =>{
+ fetch(`https://openapi.programming-hero.com/api/news/${details}`)
+ .then(res => res.json())
+ .then(data => displayDetails(data.data))
 }
 
 
