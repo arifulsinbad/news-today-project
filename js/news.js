@@ -97,7 +97,21 @@ const detailsBtn = details =>{
  .then(res => res.json())
  .then(data => displayDetails(data.data))
 }
+const displayDetails = detailId =>{
+console.log(detailId)
+document.getElementById('exampleModalLabel').innerText =detailId[0].title;
+detailId.forEach(idDetail =>{
+  const modalField = document.getElementById('modalField');
+  modalField.innerHTML = `
 
+  <img src="${idDetail.thumbnail_url}" class="img-fluid rounded-start w-75" alt="...">
+  <p class="card-text">${idDetail.details}</p>
+
+ 
+  
+  `;
+})
+}
 
 
 
