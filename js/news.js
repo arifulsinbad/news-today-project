@@ -37,6 +37,7 @@ const displayId = dataId =>{
  dataId.forEach(idField => {
 // console.log(idField)
 
+// loadId(idField)
 const mainDiv = document.createElement('div');
 
 mainDiv.innerHTML = `
@@ -65,7 +66,7 @@ mainDiv.innerHTML = `
     </span>
     </div>
      <b class="">${idField.total_view ? idField.total_view : 'not found'} views</b>
-
+  
     </div>
    </div>
  </div>
@@ -75,7 +76,22 @@ mainDiv.innerHTML = `
 `;
 mainField.appendChild(mainDiv);
 })
+// demo(dataId)
+document.getElementById('demo').innerText =dataId.length;
+loaderItem(false);
 }
+
+
+const loaderItem = loader =>{
+  const loaderField = document.getElementById('loader');
+  if(loader){
+    loaderField.classList.remove('d-none')
+  }
+  else{
+    loaderField.classList.add('d-none')
+  }
+}
+
 
 
 
