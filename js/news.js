@@ -37,7 +37,6 @@ const displayId = dataId =>{
  dataId.forEach(idField => {
 // console.log(idField)
 
-// loadId(idField)
 const mainDiv = document.createElement('div');
 
 mainDiv.innerHTML = `
@@ -66,7 +65,7 @@ mainDiv.innerHTML = `
     </span>
     </div>
      <b class="">${idField.total_view ? idField.total_view : 'not found'} views</b>
-  <div onclick="detailsBtn('${idField._id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</div>
+
     </div>
    </div>
  </div>
@@ -75,53 +74,6 @@ mainDiv.innerHTML = `
  </div>
 `;
 mainField.appendChild(mainDiv);
-})
-// demo(dataId)
-document.getElementById('demo').innerText =dataId.length;
-loaderItem(false);
-}
-
-
-const loaderItem = loader =>{
-  const loaderField = document.getElementById('loader');
-  if(loader){
-    loaderField.classList.remove('d-none')
-  }
-  else{
-    loaderField.classList.add('d-none')
-  }
-}
-
-const detailsBtn = details =>{
- fetch(`https://openapi.programming-hero.com/api/news/${details}`)
- .then(res => res.json())
- .then(data => displayDetails(data.data))
-}
-const displayDetails = detailId =>{
-console.log(detailId)
-document.getElementById('exampleModalLabel').innerText =detailId[0].title;
-detailId.forEach(idDetail =>{
-  const modalField = document.getElementById('modalField');
-  modalField.innerHTML = `
-
-  <img src="${idDetail.thumbnail_url}" class="img-fluid rounded-start w-75" alt="...">
-  <p class="card-text">${idDetail.details}</p>
-  
-  <div class="d-flex justify-content-between align-items-center g-5 width">
-    
-  <div class="d-flex">
-  <img src="${i.author.img}" alt=""><br>
-  <span  class="">
-  <b>${idDetail.author.name ? idDetail.author.name: 'not found'}</b>
-  <p>${idDetail.author ? idDetail.author.published_date: 'not found'}</p>
-  </span>
-  </div>
-   <b class="">${idDetail.total_view ? idDetail.total_view : 'not found'} views</b>
-
-  </div>
- 
-  
-  `;
 })
 }
 
