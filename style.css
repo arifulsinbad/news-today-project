@@ -18,6 +18,16 @@ body{
 
 }
 .position{
- 
-margin-bottom: 0;
+ margin-bottom: 0;
+position: fixed;
+bottom: 0;
+}
+.content{
+ margin-bottom: 150px;
+}
+.btnField{
+ margin: 20px;
+ border-top: 2px solid gray;
+ padding: 10px;
+
 }

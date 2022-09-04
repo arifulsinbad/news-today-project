@@ -1,6 +1,6 @@
 
-const loadCategory = () =>{
- fetch('https://openapi.programming-hero.com/api/news/categories')
+const loadCategory = (allNews) =>{
+ fetch(`https://openapi.programming-hero.com/api/news/categories/${allNews}`)
  .then(res => res.json())
  .then(data => displayCategory(data.data.news_category))
  .catch(error => console.log(error))
@@ -35,6 +35,7 @@ const displayId1 = (a, b)=>{
 
 
 const displayId = dataId =>{
+  loadCategory (dataId[7])
   // console.log(dataId.sort(displayId1))
 const idData = dataId.sort(displayId1)
 //  console.log(idData)
@@ -140,5 +141,5 @@ const loadCategory1 = names =>{
 
 
 
-loadCategory('')
+loadCategory()
 
