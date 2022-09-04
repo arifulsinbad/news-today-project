@@ -1,6 +1,6 @@
 
-const loadCategory = (allNews) =>{
- fetch(`https://openapi.programming-hero.com/api/news/categories/${allNews}`)
+const loadCategory = () =>{
+ fetch(`https://openapi.programming-hero.com/api/news/categories/`)
  .then(res => res.json())
  .then(data => displayCategory(data.data.news_category))
  .catch(error => console.log(error))
@@ -10,6 +10,7 @@ const loadCategory = (allNews) =>{
 const displayCategory = category =>{
  const categories = document.getElementById('category-container');
  category.forEach(element => {
+  
   const categoryLi = document.createElement('li');
   categoryLi.classList.add('nav-item');
   categoryLi.innerHTML = `
@@ -35,16 +36,17 @@ const displayId1 = (a, b)=>{
 
 
 const displayId = dataId =>{
-  loadCategory (dataId[7])
+  
   // console.log(dataId.sort(displayId1))
 const idData = dataId.sort(displayId1)
 //  console.log(idData)
+// loadCategory(idData[0])
  const mainField = document.getElementById('main-field');
  mainField.innerHTML = '';
  idData.forEach((idField) => {
 // console.log(idField.category_id)
-
 // loadId(idField)
+
 const mainDiv = document.createElement('div');
 
 mainDiv.innerHTML = `
@@ -137,6 +139,8 @@ detailId.forEach(idDetail =>{
 const loadCategory1 = names =>{
   document.getElementById('demo2').innerText =names;
 }
+
+
 
 
 
