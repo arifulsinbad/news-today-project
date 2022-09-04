@@ -13,7 +13,7 @@ const displayCategory = category =>{
   const categoryLi = document.createElement('li');
   categoryLi.classList.add('nav-item');
   categoryLi.innerHTML = `
-  <a onclick ="categoryId('${element.category_id}'), loaderItem(true), loadCategory($)" class="nav-link active" aria-current="page">${element.category_name}</a>
+  <a onclick ="categoryId('${element.category_id}'), loaderItem(true), loadCategory1('${element.category_name}')" class="nav-link active" aria-current="page">${element.category_name}</a>
   
   `;
   categories.appendChild(categoryLi);
@@ -41,7 +41,7 @@ const idData = dataId.sort(displayId1)
  const mainField = document.getElementById('main-field');
  mainField.innerHTML = '';
  idData.forEach((idField) => {
-console.log(idField.category_id)
+// console.log(idField.category_id)
 
 // loadId(idField)
 const mainDiv = document.createElement('div');
@@ -132,6 +132,11 @@ detailId.forEach(idDetail =>{
   `;
 })
 }
+
+const loadCategory1 = names =>{
+  document.getElementById('demo2').innerText =names;
+}
+
 
 
 
