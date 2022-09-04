@@ -31,3 +31,15 @@ bottom: 0;
  padding: 10px;
 
 }
+.author{
+ position: relative;
+ left: 5px;
+ top: 5px;
+}
+@media only screen and (max-width: 600px) {
+.imageField {
+ width: 94%;
+
+
+}
+}

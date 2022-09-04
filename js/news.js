@@ -54,8 +54,8 @@ mainDiv.innerHTML = `
  <div class="d-flex h">
  
  <div class="row g-0 ">
- <div class="col-md-4 my-2  mx">
-   <img src="${idField.thumbnail_url}" class="img-fluid rounded-start " alt="...">
+ <div class="col-md-3 my-2  mx">
+   <img src="${idField.thumbnail_url}" class="img-fluid rounded-start imageField " alt="...">
  </div>
  <div class="col-md-8">
    <div class="card-body">
@@ -69,7 +69,7 @@ mainDiv.innerHTML = `
     
     <div class="d-flex">
     <img src="${idField.author.img}" alt=""><br>
-    <span  class="">
+    <span  class="author">
     <b>${idField.author.name ? idField.author.name: 'not found'}</b>
     <p>${idField.author ? idField.author.published_date: 'not found'}</p>
     </span>
@@ -115,7 +115,7 @@ detailId.forEach(idDetail =>{
   const modalField = document.getElementById('modalField');
   modalField.innerHTML = `
 
-  <img src="${idDetail.thumbnail_url}" class="img-fluid rounded-start w-75" alt="...">
+  <img src="${idDetail.thumbnail_url}" class="img-fluid rounded-start w-100" alt="...">
   <p class="card-text">${idDetail.details}</p>
   
   <div class="d-flex justify-content-between align-items-center g-5 width">
