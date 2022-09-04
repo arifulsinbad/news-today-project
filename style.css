@@ -1,3 +1,7 @@
+body{
+ margin: 0;
+ padding: 0;
+}
 .nav-item{
  margin-left: 2vw;
  font-weight: 700;
@@ -7,4 +11,13 @@
  width: 4em;
  border-radius: 50px;
 
+}
+.mx {
+ position: relative;
+ left: 10px;
+
+}
+.position{
+ 
+margin-bottom: 0;
 }

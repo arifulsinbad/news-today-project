@@ -3,6 +3,7 @@ const loadCategory = () =>{
  fetch('https://openapi.programming-hero.com/api/news/categories')
  .then(res => res.json())
  .then(data => displayCategory(data.data.news_category))
+ .catch(error => console.log(error))
 }
 
 
@@ -12,7 +13,7 @@ const displayCategory = category =>{
   const categoryLi = document.createElement('li');
   categoryLi.classList.add('nav-item');
   categoryLi.innerHTML = `
-  <a onclick ="categoryId('${element.category_id}'), loaderItem(true)" class="nav-link active" aria-current="page">${element.category_name}</a>
+  <a onclick ="categoryId('${element.category_id}'), loaderItem(true), loadCategory($)" class="nav-link active" aria-current="page">${element.category_name}</a>
   
   `;
   categories.appendChild(categoryLi);
@@ -25,17 +26,22 @@ const categoryId = Id =>{
  fetch(`https://openapi.programming-hero.com/api/news/category/${Id}`)
  .then(res => res.json())
  .then(data => displayId(data.data))
+ .catch(error => console.log(error))
+
+}
+const displayId1 = (a, b)=>{
+  return b.total_view - a.total_view
 }
 
 
 const displayId = dataId =>{
-  
-
-//  console.log(dataId)
+  // console.log(dataId.sort(displayId1))
+const idData = dataId.sort(displayId1)
+//  console.log(idData)
  const mainField = document.getElementById('main-field');
  mainField.innerHTML = '';
- dataId.forEach(idField => {
-// console.log(idField)
+ idData.forEach((idField) => {
+console.log(idField.category_id)
 
 // loadId(idField)
 const mainDiv = document.createElement('div');
@@ -45,8 +51,8 @@ mainDiv.innerHTML = `
  <div class="d-flex h">
  
  <div class="row g-0 ">
- <div class="col-md-4 ">
-   <img src="${idField.thumbnail_url}" class="img-fluid rounded-start w-75" alt="...">
+ <div class="col-md-4 my-2  mx">
+   <img src="${idField.thumbnail_url}" class="img-fluid rounded-start " alt="...">
  </div>
  <div class="col-md-8">
    <div class="card-body">
@@ -77,7 +83,8 @@ mainDiv.innerHTML = `
 mainField.appendChild(mainDiv);
 })
 // demo(dataId)
-document.getElementById('demo').innerText =dataId.length;
+document.getElementById('demo').innerText =`${dataId.length ? dataId.length : 'no founded'}`;
+
 loaderItem(false);
 }
 
@@ -96,6 +103,7 @@ const detailsBtn = details =>{
  fetch(`https://openapi.programming-hero.com/api/news/${details}`)
  .then(res => res.json())
  .then(data => displayDetails(data.data))
+ .catch(error => console.log(error))
 }
 const displayDetails = detailId =>{
 console.log(detailId)
@@ -127,5 +135,5 @@ detailId.forEach(idDetail =>{
 
 
 
-loadCategory()
+loadCategory('')
 
